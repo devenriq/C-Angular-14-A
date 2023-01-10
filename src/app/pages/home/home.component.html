@@ -1,0 +1,50 @@
+<div>
+  <h3>cambiar to uppercase</h3>
+  <div>
+    <label for=""></label>
+    <input type="text" [(ngModel)]="text" />
+  </div>
+  <p>
+    Resultado: <span> {{ text | uppercase }} </span>
+  </p>
+</div>
+
+<div class="flex justify-center">
+  <div class="mb-3 xl:w-96">
+    <label
+      for="exampleFormControlInput1"
+      class="form-label inline-block mb-2 text-gray-700"
+      >Valor ingresado:</label
+    >
+    <input
+      type="number"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleFormControlInput1"
+      placeholder="Ingresa un monto"
+      [(ngModel)]="monto"
+    />
+    <div class="flex justify-center">
+      <div class="mb-3 xl:w-96">
+        <select
+          class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          aria-label="Default select example"
+          [(ngModel)]="seleccionado"
+        >
+          <option [value]="moneda" *ngFor="let moneda of monedas">
+            {{ moneda }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <h2>
+      Valor convertido
+      <span>{{ monto | currency : seleccionado : "S/. " }}</span>
+    </h2>
+  </div>
+</div>
+
+<div>
+  <h1>Tarea asíncrona</h1>
+  <p>Despliegue de información en formato JSON</p>
+  <p *ngFor="let user of valores">{{ user | json }}</p>
+</div>
